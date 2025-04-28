@@ -1,14 +1,42 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #202020;
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --color-primary: #f69b20;
+  --color-secondary: #f69b20;
+  --color-navbar: #f2f2f2;
+  --color-hover-green: #00695c;
+  --color-hover-red: #690000;
+  --color-black: #000000;
+  --color-black10: #101010;
+  --color-black20: #202020;
+  --color-black30: #303030;
+  --color-black40: #404040;
+  --color-white: #ffffff;
+}
+
+body{
+  margin-top: 5rem;
+}
+
+hr{
+  height: 2px;
+  background-color: var(--color-primary);
+  border: none;
+  margin-bottom: 2rem;
+}
+
+a{
+  text-decoration: none;
+  color: #202020;
 }
