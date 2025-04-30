@@ -15,6 +15,7 @@
   --color-primary: #f69b20;
   --color-secondary: #f69b20;
   --color-navbar: #f2f2f2;
+  --color-navbar-hover: #dddddd;
   --color-hover-green: #00695c;
   --color-hover-red: #690000;
   --color-black: #000000;
@@ -23,10 +24,15 @@
   --color-black30: #303030;
   --color-black40: #404040;
   --color-white: #ffffff;
+  --color-white100: #fafafa;
 }
 
 body{
   margin-top: 5rem;
+}
+
+.container{
+  margin: 0rem 12rem;
 }
 
 hr{
