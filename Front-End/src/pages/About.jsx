@@ -3,7 +3,7 @@ import '../styles/About.css';
 
 function About() {
   return (
-    <div className='about-container'>
+    <div className='about-container container'>
       <h1 className='about-h1'>About one world foundation</h1>
       <hr />
 
