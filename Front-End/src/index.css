@@ -1,5 +1,5 @@
 :root {
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -13,18 +13,24 @@
   -moz-osx-font-smoothing: grayscale;
 
   --color-primary: #f69b20;
-  --color-secondary: #f69b20;
+  --color-primary-dark: #ffa726;
+  --color-primary-hover: #fb8c00;
   --color-navbar: #f2f2f2;
   --color-navbar-hover: #dddddd;
   --color-hover-green: #00695c;
   --color-hover-red: #690000;
+  --color-secondary: #0073e6;
   --color-black: #000000;
   --color-black10: #101010;
   --color-black20: #202020;
   --color-black30: #303030;
   --color-black40: #404040;
   --color-white: #ffffff;
-  --color-white100: #fafafa;
+  --color-whitefa: #fafafa;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body{
@@ -32,13 +38,16 @@ body{
 }
 
 .container{
-  margin: 0rem 12rem;
+  margin: auto 10%;
+  padding: 2rem;
+  text-align: center;
 }
 
 hr{
   height: 2px;
   background-color: var(--color-primary);
   border: none;
+  border-radius: 2rem;
   margin-bottom: 2rem;
 }
 
