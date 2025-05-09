@@ -1,4 +1,4 @@
-import { fetchFolderByName, fetchSubfolders, fetchImages } from "../services/driveService.js";
+import { fetchFolderByName, fetchSubfolders, fetchFoldersWithImages } from "../services/galleryService.js";
 
 export const getFolderAndSubfolders = async (req, res) => {
   try {
@@ -24,11 +24,11 @@ export const getFolderAndSubfolders = async (req, res) => {
 };
 
 export const getImages = async (req, res) => {
-  const { folderId } = req.query;
+  const { folderId, page, limit } = req.query;
   if (!folderId) return res.status(400).json({ error: 'folderId is required' });
 
   try {
-    const images = await fetchImages(folderId);
+    const images = await fetchFoldersWithImages(folderId, page, limit);
     res.json(images);
   } catch (error) {
     console.error(error);

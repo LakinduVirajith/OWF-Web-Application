@@ -1,5 +1,5 @@
 import express from "express";
-import { getFolderAndSubfolders, getImages } from "../controllers/driveController.js";
+import { getFolderAndSubfolders, getImages } from "../controllers/galleryController.js";
 
 const router = express.Router();
 
