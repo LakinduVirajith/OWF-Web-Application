@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet';
 import '../styles/Staff.css';
 
@@ -51,8 +51,16 @@ function Staff() {
 
       <section className="staff-grid">
       {staffData.map((staff, index) => (
-          <article className="staff-member" key={index} onClick={() => fetchSelectedStaff(staff.id)}>
-            <img src={staff.imageUrl} alt={`Photo of ${staff.name}`} loading="lazy" />
+          <article 
+            className="staff-member"
+            key={index}
+            onClick={() => fetchSelectedStaff(staff.id)}
+          >
+            <img 
+              src={staff.imageUrl}
+              alt={`Photo of ${staff.name}`}
+              loading="lazy" 
+            />
             <h2>{staff.name}</h2>
             <p className="role">{staff.role}</p>
           </article>
@@ -60,9 +68,20 @@ function Staff() {
       </section>
 
       {selectedStaff && (
-        <div className="staff-modal" onClick={() => setSelectedStaff(null)}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
-            <button className="close-button" onClick={() => setSelectedStaff(null)}>x</button>
+        <div 
+          className="staff-modal" 
+          onClick={() => setSelectedStaff(null)}
+        >
+          <div 
+            className="modal-content"
+            onClick={e => e.stopPropagation()}
+          >
+            <button 
+              className="close-button"
+              onClick={() => setSelectedStaff(null)}
+            >
+              x
+            </button>
             <img src={selectedStaff.imageUrl} alt={`Photo of ${selectedStaff.name}`} />
             <h2>{selectedStaff.name}</h2>
             <p><strong>Role:</strong> {selectedStaff.role}</p>

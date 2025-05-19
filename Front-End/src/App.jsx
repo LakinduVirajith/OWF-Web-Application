@@ -5,6 +5,7 @@ import About from "./pages/About"
 import Staff from "./pages/Staff"
 import Gallery from "./pages/Gallery"
 import News from "./pages/News"
+import NewsDetail from "./pages/NewsDetail"
 
 import PreSchool from "./pages/courses/PreSchool"
 import LanguageTraining from "./pages/courses/LanguageTraining"
@@ -26,6 +27,7 @@ function App() {
           <Route path="/staff" element={<Staff />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/news" element={<News />} />
+          <Route path="/news/:id" element={<NewsDetail />} />
 
           <Route path="/pre-school" element={<PreSchool />} />
           <Route path="/language-training" element={<LanguageTraining />} />

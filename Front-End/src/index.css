@@ -19,12 +19,17 @@
   --color-navbar-hover: #dddddd;
   --color-hover-green: #00695c;
   --color-hover-red: #690000;
-  --color-secondary: #0073e6;
+  --color-link: #007BFF;
+  --color-link-hover: #0056b3;
   --color-black: #000000;
   --color-black10: #101010;
   --color-black20: #202020;
   --color-black30: #303030;
   --color-black40: #404040;
+  --color-black50: #505050;
+  --color-black60: #606060;
+  --color-black70: #707070;
+  --color-black80: #808080;
   --color-white: #ffffff;
   --color-whitefa: #fafafa;
 }
