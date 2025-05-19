@@ -5,8 +5,8 @@ export const getAllStaff = async (req, res) => {
     const staff = await fetchStaffDataWithImages();
     res.json(staff);
   } catch (err) {
-    console.error('Error fetching staff data:', err);
-    res.status(500).json({ error: 'Failed to fetch staff data' });
+    console.error("Error fetching staff data:", err);
+    res.status(500).json({ error: "Failed to fetch staff data" });
   }
 };
 
@@ -20,7 +20,7 @@ export const getStaffDetails = async (req, res) => {
 
     res.json(staff);
   } catch (err) {
-    console.error('Error fetching staff details:', err);
-    res.status(500).json({ error: 'Failed to fetch staff details' });
+    console.error("Error fetching staff details:", err);
+    res.status(500).json({ error: "Failed to fetch staff details" });
   }
 };
