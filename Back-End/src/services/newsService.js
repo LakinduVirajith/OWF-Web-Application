@@ -40,9 +40,9 @@ export const fetchNewsDetailsById = async (id) => {
     }
 
     if (news.Extra_Images && String(news.Extra_Images).toLowerCase() === "true") {
-        const extraImageFiles = await getChildFolderFiles("News", "Extra_Images");
+        const { excelFile, imageFiles } = await getChildFolderFiles("News", "Extra_Images");
 
-        const relatedExtraImages = extraImageFiles.filter(file =>
+        const relatedExtraImages = imageFiles.filter(file =>
             file.name.startsWith(`${news.ID}_`) &&
             /\.(webp|jpg|jpeg|png)$/i.test(file.name)
         );

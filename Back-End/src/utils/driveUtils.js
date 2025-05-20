@@ -12,8 +12,6 @@ export const getFolderFiles = async (folderName) => {
   const excelFile = res.value.find(item => item.name.endsWith('.xlsx'));
   const imageFiles = res.value.filter(item => /\.(webp|jpg|jpeg|png)$/i.test(item.name));
 
-  if (!excelFile) throw new Error(`Excel file not found in ${folderName} folder`);
-
   return { excelFile, imageFiles };
 };
 
@@ -23,8 +21,10 @@ export const getChildFolderFiles = async (parentFolderName, childFolderName) => 
     .api(`/users/${process.env.ONE_DRIVE_USER_ID}/drive/root:/${parentPath}:/children`)
     .get();
 
+  const excelFile = res.value.find(item => item.name.endsWith('.xlsx'));
   const imageFiles = res.value.filter(item => /\.(webp|jpg|jpeg|png)$/i.test(item.name));
-  return imageFiles;
+    
+  return { excelFile, imageFiles };
 };
 
 export const downloadExcelFile = async (fileId) => {

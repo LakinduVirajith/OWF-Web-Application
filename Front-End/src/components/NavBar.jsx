@@ -46,12 +46,12 @@ function NavBar() {
             Courses
             {isDropdownOpen && (
               <ul className="dropdown-menu">
-                <li className="dropdown-item"><a href="/pre-school/">Pre-School</a></li>
-                <li className="dropdown-item"><a href="/language-training/">Language Training</a></li>
-                <li className="dropdown-item"><a href="/vocational-training/">Vocational Training</a></li>
-                <li className="dropdown-item"><a href="/primary-education/">Primary Education</a></li>
-                <li className="dropdown-item"><a href="/music-arts/">Music & Arts</a></li>
-                <li className="dropdown-item"><a href="/sports/">Sports</a></li>
+                <li className="dropdown-item"><a href="/courses/pre-school/">Pre-School</a></li>
+                <li className="dropdown-item"><a href="/courses/language-training/">Language Training</a></li>
+                <li className="dropdown-item"><a href="/courses/vocational-training/">Vocational Training</a></li>
+                <li className="dropdown-item"><a href="/courses/primary-education/">Primary Education</a></li>
+                <li className="dropdown-item"><a href="/courses/music-arts/">Music & Arts</a></li>
+                <li className="dropdown-item"><a href="/courses/sports/">Sports</a></li>
               </ul>
             )}
           </li>
