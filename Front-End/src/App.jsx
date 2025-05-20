@@ -29,12 +29,12 @@ function App() {
           <Route path="/news" element={<News />} />
           <Route path="/news/:id" element={<NewsDetail />} />
 
-          <Route path="/pre-school" element={<PreSchool />} />
-          <Route path="/language-training" element={<LanguageTraining />} />
-          <Route path="/vocational-training" element={<VocationalTraining />} />
-          <Route path="/primary-education" element={<PrimaryEducation />} />
-          <Route path="/music-arts" element={<MusicArts />} />
-          <Route path="/sports" element={<Sports />} />
+          <Route path="/courses/pre-school" element={<PreSchool />} />
+          <Route path="/courses/language-training" element={<LanguageTraining />} />
+          <Route path="/courses/vocational-training" element={<VocationalTraining />} />
+          <Route path="/courses/primary-education" element={<PrimaryEducation />} />
+          <Route path="/courses/music-arts" element={<MusicArts />} />
+          <Route path="/courses/sports" element={<Sports />} />
         </Routes>
       </BrowserRouter>
       <Footer />

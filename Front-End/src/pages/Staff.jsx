@@ -46,7 +46,7 @@ function Staff() {
         <link rel="canonical" href="https://owf.lk/staff/" />
       </Helmet>
 
-      <h1 className='staff-header'>Management and Staff</h1>
+      <h1 className='header'>Management and Staff</h1>
       <hr />
 
       <section className="staff-grid">

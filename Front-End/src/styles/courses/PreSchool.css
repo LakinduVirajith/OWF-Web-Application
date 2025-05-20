@@ -1,0 +1,22 @@
+.pre-school-wrapper{
+  display: flex;
+  gap: 4rem;
+  justify-content: space-between;
+}
+
+.pre-school-image-container{
+  flex: 1;
+}
+
+.pre-school-para-container{
+  margin-top: -1.2rem;
+  flex: 2;
+  text-align: justify;
+}
+
+.pre-school-image{
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
