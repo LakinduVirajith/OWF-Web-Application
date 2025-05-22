@@ -1,5 +1,6 @@
 import { getFolderFiles, getChildFolderFiles, downloadExcelFile, updateExcelFile } from "../utils/driveUtils.js";
 import { parseExcelSheet, buildImageMap, excelDateToJSDate, writeExcelSheet } from "../utils/excelUtils.js";
+import { extractParagraphs } from "../utils/textUtils.js";
 
 export const fetchNewsDataWithImages = async () => {
     const { excelFile, imageFiles } = await getFolderFiles('News');
@@ -31,10 +32,7 @@ export const fetchNewsDetailsById = async (id) => {
         title: news.Header,
         publishedDate: excelDateToJSDate(news.Published_Date),
         writtenBy: news.Written_By,
-        paragraph1: news.Para_1,
-        paragraph2: news.Para_2,
-        paragraph3: news.Para_3,
-        paragraph4: news.Para_4,
+        ...extractParagraphs(news),
         viewCount: news.View_Count,
         imageUrl: imageMap[news.ID] || null,
     }
