@@ -40,3 +40,16 @@ export const fetchSportsWithImage = async () => {
         imageUrl: imageMap[data.ID] || null,
     }
 }
+
+export const fetchMusicWithImage = async () => {
+    const { excelFile, imageFiles } = await getChildFolderFiles("Courses", "Music");
+    const sheet = parseExcelSheet(await downloadExcelFile(excelFile.id));
+    const imageMap = buildImageMap(imageFiles);
+
+    const data = sheet[0];
+
+    return {
+        ...extractParagraphs(data),
+        imageUrl: imageMap[data.ID] || null,
+    }
+}

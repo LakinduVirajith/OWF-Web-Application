@@ -11,7 +11,7 @@ import PreSchool from "./pages/courses/PreSchool"
 import LanguageTraining from "./pages/courses/LanguageTraining"
 import VocationalTraining from "./pages/courses/VocationalTraining"
 import PrimaryEducation from "./pages/courses/PrimaryEducation"
-import MusicArts from "./pages/courses/MusicArts"
+import Music from "./pages/courses/Music"
 import Sports from "./pages/courses/Sports"
 
 import Footer from "./components/Footer"
@@ -33,7 +33,7 @@ function App() {
           <Route path="/courses/language-training" element={<LanguageTraining />} />
           <Route path="/courses/vocational-training" element={<VocationalTraining />} />
           <Route path="/courses/primary-education" element={<PrimaryEducation />} />
-          <Route path="/courses/music-arts" element={<MusicArts />} />
+          <Route path="/courses/music" element={<Music />} />
           <Route path="/courses/sports" element={<Sports />} />
         </Routes>
       </BrowserRouter>
