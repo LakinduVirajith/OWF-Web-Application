@@ -6,23 +6,23 @@ import LoadingScreen from '../../components/LoadingScreen';
 function PrimaryEducation() {
   const [courseData, setCourseData] = useState(null);
   
-    const backendApiUrl = import.meta.env.VITE_BACKEND_API_URL;
+  const backendApiUrl = import.meta.env.VITE_BACKEND_API_URL;
   
-    useEffect(() => {
-        const fetchCoursesStructure = async () => {
-          try {
-            const res = await fetch(`${backendApiUrl}/courses/primary-education`)
-            const data = await res.json();
-            setCourseData(data);          
-          } catch (error) {
-            console.error('Error fetching courses data:', error);
-          }
-        };
+  useEffect(() => {
+    const fetchCoursesStructure = async () => {
+      try {
+        const res = await fetch(`${backendApiUrl}/courses/primary-education`)
+        const data = await res.json();
+        setCourseData(data);          
+      } catch (error) {
+        console.error('Error fetching courses data:', error);
+      }
+    };
     
-        fetchCoursesStructure();
-    }, [backendApiUrl])
+    fetchCoursesStructure();
+  }, [backendApiUrl])
   
-    if (!courseData) return <LoadingScreen />;
+  if (!courseData) return <LoadingScreen />;
 
   return (
     <main className="container">
@@ -48,7 +48,8 @@ function PrimaryEducation() {
               })
               .map((key) => (
                 <p key={key}>{courseData[key]}</p>
-              ))}
+              ))
+            }
           </div>
         }
 
