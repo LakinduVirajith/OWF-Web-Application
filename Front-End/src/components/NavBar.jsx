@@ -50,7 +50,7 @@ function NavBar() {
                 <li className="dropdown-item"><a href="/courses/language-training/">Language Training</a></li>
                 <li className="dropdown-item"><a href="/courses/vocational-training/">Vocational Training</a></li>
                 <li className="dropdown-item"><a href="/courses/primary-education/">Primary Education</a></li>
-                <li className="dropdown-item"><a href="/courses/music-arts/">Music & Arts</a></li>
+                <li className="dropdown-item"><a href="/courses/music/">Music</a></li>
                 <li className="dropdown-item"><a href="/courses/sports/">Sports</a></li>
               </ul>
             )}

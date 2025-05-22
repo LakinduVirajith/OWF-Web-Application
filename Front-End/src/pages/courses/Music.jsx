@@ -1,44 +1,44 @@
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import '../../styles/courses/Sports.css';
+import '../../styles/courses/Music.css';
 import LoadingScreen from '../../components/LoadingScreen';
 
-function Sports() {
+function MusicArts() {
   const [courseData, setCourseData] = useState(null);
-
+  
   const backendApiUrl = import.meta.env.VITE_BACKEND_API_URL;
-
+  
   useEffect(() => {
     const fetchCoursesStructure = async () => {
       try {
-        const res = await fetch(`${backendApiUrl}/courses/sports`)
+        const res = await fetch(`${backendApiUrl}/courses/music`)
         const data = await res.json();
         setCourseData(data);
       } catch (error) {
         console.error('Error fetching courses data:', error);
       }
     };
-
+  
     fetchCoursesStructure();
   }, [backendApiUrl])
-
+  
   if (!courseData) return <LoadingScreen />;
 
   return (
     <main className="container">
       <Helmet>
-        <title>Sports | One World Foundation</title>
-        <meta name="description" content="Discover the Sports program at One World Foundation — promoting physical fitness, teamwork, and holistic development for youth in Ahungalla, Sri Lanka." />
-        <meta name="keywords" content="Sports Program, Physical Education, Youth Development, One World Foundation, OWF, Sri Lanka NGO, Ahungalla, Free Sports Training" />
-        <link rel="canonical" href="https://owf.lk/courses/sports" />
+        <title>Music | One World Foundation</title>
+        <meta name="description" content="Join the Music program at One World Foundation in Ahungalla, Sri Lanka — nurturing creativity, rhythm, and expression through free music education." />
+        <meta name="keywords" content="Music Program, Music Education, Creative Arts, One World Foundation, OWF Music, Free Music Classes, Sri Lanka NGO, Ahungalla" />
+        <link rel="canonical" href="https://owf.lk/courses/music" />
       </Helmet>
 
-      <h1 className='header'>Sports</h1>
+      <h1 className='header'>Music</h1>
       <hr />
 
-      <div className="sports-wrapper">
+      <div className="music-wrapper">
         {courseData.paragraph1 &&
-          <div className="sports-para-container">
+          <div className="music-para-container">
             {Object.keys(courseData)
               .filter((key) => key.startsWith("paragraph"))
               .sort((a, b) => {
@@ -54,11 +54,11 @@ function Sports() {
         }
 
         {courseData.imageUrl && (
-          <div className='ssports-image-container'>
+          <div className='music-image-container'>
             <img
               src={courseData.imageUrl}
-              alt={courseData.paragraph1?.slice(0, 50) || "sports image"}
-              className="sports-image"
+              alt={courseData.paragraph1?.slice(0, 50) || "music image"}
+              className="music-image"
             />
 
             <button className="btn-primary btn-full">APPLY NOW</button>
@@ -69,4 +69,4 @@ function Sports() {
   )
 }
 
-export default Sports
+export default MusicArts
