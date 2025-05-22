@@ -15,7 +15,7 @@ function News() {
       try {
         const res = await fetch(`${backendApiUrl}/news/all`)
         const data = await res.json();
-        setNewsData(data);
+        setNewsData(data.reverse());
       } catch (error) {
         console.error('Error fetching news data:', error);
       }

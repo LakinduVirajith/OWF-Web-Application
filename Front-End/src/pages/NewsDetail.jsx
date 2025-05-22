@@ -58,9 +58,16 @@ function NewsDetail() {
         </div>
 
         <div className="news-detail-content">
-          {newsItem.paragraph2 && <p>{newsItem.paragraph2}</p>}
-          {newsItem.paragraph3 && <p>{newsItem.paragraph3}</p>}
-          {newsItem.paragraph4 && <p>{newsItem.paragraph4}</p>}
+          {Object.entries(newsItem)
+            .filter(([key, value]) => /^paragraph\d+$/.test(key) && key !== 'paragraph1' && value)
+            .sort(([a], [b]) => {
+              const numA = parseInt(a.replace('paragraph', ''));
+              const numB = parseInt(b.replace('paragraph', ''));
+              return numA - numB;
+            })
+            .map(([key, value]) => (
+              <p key={key}>{value}</p>
+            ))}
         </div>
 
         {newsItem.extraImages?.length > 0 && (

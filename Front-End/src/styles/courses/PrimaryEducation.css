@@ -1,20 +1,20 @@
-.pre-school-wrapper{
+.primary-education-wrapper{
   display: flex;
   gap: 4rem;
   justify-content: space-between;
 }
 
-.pre-school-image-container{
+.primary-education-image-container{
   flex: 1;
 }
 
-.pre-school-para-container{
+.primary-education-para-container{
   margin-top: -1.2rem;
   flex: 2;
   text-align: justify;
 }
 
-.pre-school-image{
+.primary-education-image{
   width: 100%;
   height: auto;
   border-radius: 12px;
@@ -22,7 +22,7 @@
 }
 
 @media (max-width: 768px) {
-  .pre-school-wrapper {
+  .primary-education-wrapper {
     flex-direction: column-reverse;
     gap: 2rem;
   }
