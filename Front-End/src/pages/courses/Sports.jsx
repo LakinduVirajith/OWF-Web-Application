@@ -33,7 +33,7 @@ function Sports() {
         <link rel="canonical" href="https://owf.lk/courses/sports" />
       </Helmet>
 
-      <h1 className='header'>Sports</h1>
+      <h1 className='header'>{courseData.name}</h1>
       <hr />
 
       <div className="sports-wrapper">
@@ -54,7 +54,7 @@ function Sports() {
         }
 
         {courseData.imageUrl && (
-          <div className='ssports-image-container'>
+          <div className='sports-image-container'>
             <img
               src={courseData.imageUrl}
               alt={courseData.paragraph1?.slice(0, 50) || "sports image"}

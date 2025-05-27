@@ -9,6 +9,7 @@ import NewsDetail from "./pages/NewsDetail"
 
 import PreSchool from "./pages/courses/PreSchool"
 import LanguageTraining from "./pages/courses/LanguageTraining"
+import LanguageTrainingDetail from "./pages/courses/LanguageTrainingDetail"
 import VocationalTraining from "./pages/courses/VocationalTraining"
 import PrimaryEducation from "./pages/courses/PrimaryEducation"
 import Music from "./pages/courses/Music"
@@ -31,6 +32,7 @@ function App() {
 
           <Route path="/courses/pre-school" element={<PreSchool />} />
           <Route path="/courses/language-training" element={<LanguageTraining />} />
+          <Route path="/courses/language-training/:id" element={<LanguageTrainingDetail />} />
           <Route path="/courses/vocational-training" element={<VocationalTraining />} />
           <Route path="/courses/primary-education" element={<PrimaryEducation />} />
           <Route path="/courses/music" element={<Music />} />
