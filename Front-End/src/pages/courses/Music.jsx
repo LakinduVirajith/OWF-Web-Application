@@ -33,7 +33,7 @@ function MusicArts() {
         <link rel="canonical" href="https://owf.lk/courses/music" />
       </Helmet>
 
-      <h1 className='header'>Music</h1>
+      <h1 className='header'>{courseData.name}</h1>
       <hr />
 
       <div className="music-wrapper">

@@ -33,7 +33,7 @@ function PreSchool() {
         <link rel="canonical" href="https://owf.lk/courses/pre-school" />
       </Helmet>
 
-      <h1 className='header'>Pre-School</h1>
+      <h1 className='header'>{courseData.name}</h1>
       <hr />
 
       <div className='pre-school-wrapper'>

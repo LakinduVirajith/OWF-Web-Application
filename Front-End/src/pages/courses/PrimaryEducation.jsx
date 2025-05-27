@@ -33,7 +33,7 @@ function PrimaryEducation() {
         <link rel="canonical" href="https://owf.lk/courses/primary-education" />
       </Helmet>
 
-      <h1 className='header'>Primary Education</h1>
+      <h1 className='header'>{courseData.name}</h1>
       <hr />
 
       <div className='primary-education-wrapper'>

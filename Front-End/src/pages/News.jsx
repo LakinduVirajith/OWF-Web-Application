@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import { encryptId } from '../utils/encryption';
 import '../styles/News.css';
+import LoadingScreen from '../components/LoadingScreen';
 
 function News() {
   const [newsData, setNewsData] = useState([]);
@@ -14,7 +15,7 @@ function News() {
     const fetchNewsStructure = async () => {
       try {
         const res = await fetch(`${backendApiUrl}/news/all`)
-        const data = await res.json();
+        const data = await res.json();        
         setNewsData(data.reverse());
       } catch (error) {
         console.error('Error fetching news data:', error);
@@ -29,6 +30,8 @@ function News() {
     navigate(`/news/${encodeURIComponent(encryptedId)}`);
   };
 
+  if (newsData.length === 0) return <LoadingScreen />;
+
   return (
     <main className="container">
       <Helmet>
@@ -41,7 +44,7 @@ function News() {
       <section className="news-grid">
         {newsData.map((news) => (
           <article
-            className="news-card"
+            className="card"
             key={news.id}
             onClick={() => handleNewsClick(news.id)}
           >
