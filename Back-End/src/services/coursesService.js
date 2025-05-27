@@ -92,3 +92,38 @@ export const fetchLanguageTrainingDetailsById = async (id) => {
         imageUrl: imageMap[course.ID] || null,
     }
 }
+
+export const fetchVocationalTrainingWithImage = async () => {
+    const { excelFile, imageFiles } = await getChildFolderFiles("Courses", "Vocational-Training");
+    const excelBuffer = await downloadExcelFile(excelFile.id);
+    const sheet = parseExcelSheet(excelBuffer);
+    const imageMap = buildImageMap(imageFiles);
+
+    return sheet
+        .filter(course => String(course.Visibility).toLowerCase() === 'true')
+        .map(course => ({
+            id: course.ID,
+            name: course.Course,
+            description: course.Para_1,
+            imageUrl: imageMap[course.ID] || null,
+    }));
+}
+
+export const fetchVocationalTrainingDetailsById = async (id) => {
+    const { excelFile, imageFiles } = await getChildFolderFiles("Courses", "Vocational-Training");
+    const excelBuffer = await downloadExcelFile(excelFile.id);
+    const sheet = parseExcelSheet(excelBuffer);
+    const imageMap = buildImageMap(imageFiles);
+
+    const course = sheet.find(item => String(item.ID) === String(id));
+    if (!course) return null;
+    
+    return {
+        id: course.ID,
+        name: course.Course,
+        time_1: course.Time_1,
+        time_2: course.Time_2,
+        ...extractParagraphs(course),
+        imageUrl: imageMap[course.ID] || null,
+    }
+}

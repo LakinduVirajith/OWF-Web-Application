@@ -6,7 +6,7 @@ import '../../styles/courses/LanguageTraining.css';
 import LoadingScreen from '../../components/LoadingScreen';
 
 function LanguageTraining() {
-const [courseData, setCourseData] = useState([]);
+  const [courseData, setCourseData] = useState([]);
 
   const navigate = useNavigate();
   const backendApiUrl = import.meta.env.VITE_BACKEND_API_URL;
@@ -37,7 +37,7 @@ const [courseData, setCourseData] = useState([]);
       <Helmet>
         <title>Language Training | One World Foundation</title>
         <meta name="description" content="Explore the Language Training program at One World Foundation in Ahungalla, Sri Lanka — empowering individuals through free English and Sinhala language education." />
-        <meta name="keywords" content="Language Training, English Classes, Sinhala Classes, One World Foundation, OWF Language Education, Free Language Courses, Sri Lanka NGO, Ahungalla" /><link rel="canonical" href="https://owf.lk/courses/language-training" />
+        <meta name="keywords" content="Language Training, English Classes, Sinhala Classes, One World Foundation, OWF Language Education, Free Language Courses, Sri Lanka NGO, Ahungalla" />
         <link rel="canonical" href="https://owf.lk/courses/language-training" />
       </Helmet>
 
