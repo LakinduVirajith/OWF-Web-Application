@@ -1,5 +1,6 @@
 import { fetchPreSchoolWithImage, fetchPrimaryEducationWithImage, fetchSportsWithImage, 
-    fetchMusicWithImage, fetchLanguageTrainingWithImage, fetchLanguageTrainingDetailsById
+    fetchMusicWithImage, fetchLanguageTrainingWithImage, fetchLanguageTrainingDetailsById, 
+    fetchVocationalTrainingWithImage, fetchVocationalTrainingDetailsById
 } from "../services/coursesService.js";
 
 export const getPreSchool = async (req, res) => {
@@ -61,6 +62,31 @@ export const getLanguageTrainingDetails = async (req, res) => {
         if(!languageTraining) return res.status(404).json({ error: "Course not found" })
 
         res.json(languageTraining);
+    } catch (err) {
+        console.log('Error fetching course data:', err);
+        res.status(500).json({ error: 'Failed to fetch course data' });
+    }
+}
+
+export const getVocationalTraining = async (req, res) => {
+    try {
+        const vocationalTraining = await fetchVocationalTrainingWithImage();
+        res.json(vocationalTraining);
+    } catch (err) {
+        console.log('Error fetching course data:', err);
+        res.status(500).json({ error: 'Failed to fetch course data' });
+    }
+}
+
+export const getVocationalTrainingDetails = async (req, res) => {
+    try {
+        const courseId = req.query.id;
+        if(!courseId) return res.status(400).json({ error: "Missing course ID" });
+
+        const vocationalTraining = await fetchVocationalTrainingDetailsById(courseId);
+        if(!vocationalTraining) return res.status(404).json({ error: "Course not found" })
+
+        res.json(vocationalTraining);
     } catch (err) {
         console.log('Error fetching course data:', err);
         res.status(500).json({ error: 'Failed to fetch course data' });
