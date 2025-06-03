@@ -141,7 +141,7 @@ function Gallery() {
       {/* LOAD MORE BUTTON */}
       {galleryData.totalFolders > page * limit && (
         <div className="load-more">
-          <button className='btn-primary' onClick={loadMoreImages}>Load More</button>
+          <button className='button-primary' onClick={loadMoreImages}>Load More</button>
         </div>
       )}
 
