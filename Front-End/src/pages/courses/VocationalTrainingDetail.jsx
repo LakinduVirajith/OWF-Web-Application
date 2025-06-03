@@ -68,7 +68,7 @@ function VocationalTrainingDetail() {
                         <span>{courseItem.time_2}</span>
                     </div>
 
-                    <button className="btn-primary btn-full">APPLY NOW</button>
+                    <button className="button-primary btn-full">APPLY NOW</button>
                 </div>
                 )}
             </div>

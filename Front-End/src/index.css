@@ -1,3 +1,6 @@
+/* ==========================================================================
+   Root Variables
+   ========================================================================== */
 :root {
   font-family: 'Inter', sans-serif;
   line-height: 1.5;
@@ -12,15 +15,23 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  /* Theme Colors */
   --color-primary: #f69b20;
-  --color-primary-dark: #ffa726;
+  --color-primary-dark: #e1a243;
   --color-primary-hover: #fb8c00;
+
+  /* UI Colors */
   --color-navbar: #f2f2f2;
   --color-navbar-hover: #dddddd;
   --color-hover-green: #00695c;
   --color-hover-red: #690000;
+
+  /* Link Colors */
   --color-link: #007BFF;
+  --color-link-dark: #2e81db;
   --color-link-hover: #0056b3;
+
+  /* Greyscale Palette */
   --color-black: #000000;
   --color-black10: #101010;
   --color-black20: #202020;
@@ -34,21 +45,26 @@
   --color-whitefa: #fafafa;
 }
 
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
 html {
   scroll-behavior: smooth;
 }
 
-body{
+body {
   margin-top: 5rem;
+  background-color: var(--color-white);
+  color: var(--color-black20);
+  font-family: inherit;
 }
 
-.container{
-  margin: auto 10%;
-  padding: 2rem;
-  text-align: center;
+a {
+  text-decoration: none;
+  color: var(--color-black20);
 }
 
-hr{
+hr {
   height: 2px;
   background-color: var(--color-primary);
   border: none;
@@ -56,18 +72,24 @@ hr{
   margin-bottom: 2rem;
 }
 
-a{
-  text-decoration: none;
-  color: #202020;
+/* ==========================================================================
+   Layout Utilities
+   ========================================================================== */
+.container {
+  margin: auto 10%;
+  padding: 2rem;
+  text-align: center;
 }
 
-.header{
+.header {
   font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  margin-top: 0rem;
+  margin: 0 0 1.5rem;
 }
 
-.btn-primary{
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.button-primary {
   padding: 12px 25px;
   background-color: var(--color-primary-dark);
   color: var(--color-white);
@@ -79,15 +101,53 @@ a{
   transition: background-color 0.3s ease;
 }
 
-.btn-primary:hover {
+.button-primary:hover {
   background-color: var(--color-primary-hover);
 }
 
-.btn-full{
+.button-outline {
+  align-self: flex-start;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.button-outline:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-full {
   width: 100%;
   margin-top: 0.5rem;
 }
 
+.button-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================================================
+   Components – Cards
+   ========================================================================== */
 .card {
   display: flex;
   flex-direction: column;
@@ -103,6 +163,9 @@ a{
   transform: translateY(-4px);
 }
 
+/* ==========================================================================
+   Components – Links
+   ========================================================================== */
 .read-more {
   color: var(--color-link);
   font-weight: 500;

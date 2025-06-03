@@ -4,7 +4,7 @@ import '../styles/About.css';
 import LoadingScreen from '../components/LoadingScreen';
 
 function About() {
-   const [aboutData, setAboutData] = useState(null);
+  const [aboutData, setAboutData] = useState(null);
 
   const backendApiUrl = import.meta.env.VITE_BACKEND_API_URL;
 

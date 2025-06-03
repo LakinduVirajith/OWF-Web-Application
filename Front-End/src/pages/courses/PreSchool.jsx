@@ -60,7 +60,7 @@ function PreSchool() {
               className="pre-school-image"
             />
 
-            <button className="btn-primary btn-full">APPLY NOW</button>
+            <button className="button-primary btn-full">APPLY NOW</button>
           </div>
         )}
       </div>
