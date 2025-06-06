@@ -6,6 +6,7 @@ import aboutRoutes from "./src/routes/aboutRoutes.js";
 import staffRoutes from "./src/routes/staffRoute.js";
 import galleryRoutes from "./src/routes/galleryRoutes.js";
 import newsRoutes from "./src/routes/newsRoutes.js";
+import eventsRoutes from "./src/routes/eventsRoutes.js";
 import courseRoutes from "./src/routes/coursesRoutes.js";
 
 dotenv.config();
@@ -21,6 +22,7 @@ app.use('/api/v1/about', aboutRoutes);
 app.use('/api/v1/staff', staffRoutes);
 app.use('/api/v1/gallery', galleryRoutes);
 app.use('/api/v1/news', newsRoutes);
+app.use('/api/v1/events', eventsRoutes);
 app.use('/api/v1/courses', courseRoutes);
 
 app.listen(PORT, () => {

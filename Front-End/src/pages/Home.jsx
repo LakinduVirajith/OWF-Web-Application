@@ -282,7 +282,9 @@ function Home() {
                 )}
               </div>
               <div className="event-footer">
-                <span className="event-views">👁️ {event.viewCount}</span>
+                <span className="event-views">
+                  {/* 👁️ {event.viewCount} */}
+                </span>
                 <span
                   className="read-more"
                   onClick={() => handleEventClick(event.id)}

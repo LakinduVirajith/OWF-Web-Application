@@ -1,0 +1,70 @@
+.event-past-banner {
+  background-color: var(--color-link-light);
+  color: var(--color-link-dark);
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.event-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.event-detail-section {
+  display: flex;
+  gap: 4rem;
+}
+
+.event-image {
+  flex: 2;
+  height: auto;
+}
+
+.event-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.event-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: justify;
+  gap: 0.8rem;
+}
+
+.event-description p {
+  color: var(--color-black40);
+  margin-top: 0;
+}
+
+.event-details h3,
+.event-organizer h3 {
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  color: var(--color-black60);
+}
+
+.event-details p,
+.event-organizer p {
+  margin: 4px 0;
+}
+
+.event-details p strong,
+.event-organizer p strong {
+  color: var(--color-black20);
+}
+
+.event-organizer a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+.event-organizer a:hover {
+  text-decoration: underline;
+}
