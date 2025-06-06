@@ -27,8 +27,9 @@
   --color-hover-red: #690000;
 
   /* Link Colors */
-  --color-link: #007BFF;
+  --color-link: #007bff;
   --color-link-dark: #2e81db;
+  --color-link-light: #e0f1ff;
   --color-link-hover: #0056b3;
 
   /* Greyscale Palette */

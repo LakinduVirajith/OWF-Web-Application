@@ -214,10 +214,10 @@
   color: #666;
 }
 
-.event-button{
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 2rem;
+.event-button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
 }
 
 /* MANAGEMENT SECTION */
