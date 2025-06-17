@@ -13,7 +13,7 @@ function PreSchool() {
         try {
           const res = await fetch(`${backendApiUrl}/courses/pre-school`)
           const data = await res.json();
-          setCourseData(data);          
+          setCourseData(data);
         } catch (error) {
           console.error('Error fetching courses data:', error);
         }
@@ -21,6 +21,22 @@ function PreSchool() {
   
       fetchCoursesStructure();
   }, [backendApiUrl])
+
+  const applicationForm = () => {
+    const pdfUrl = courseData?.pdfFiles?.['@microsoft.graph.downloadUrl'];
+
+    if (pdfUrl) {
+      const link = document.createElement('a');
+      link.href = pdfUrl;
+      link.download = courseData?.pdfFiles?.name || 'application.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      console.error("❌ PDF URL not found");
+      alert("No application form available for download.");
+    }
+  }
 
   if (!courseData) return <LoadingScreen />;
 
@@ -60,7 +76,7 @@ function PreSchool() {
               className="pre-school-image"
             />
 
-            <button className="button-primary btn-full">APPLY NOW</button>
+            <button className="button-primary btn-full" onClick={applicationForm}>APPLY NOW</button>
           </div>
         )}
       </div>

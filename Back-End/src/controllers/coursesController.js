@@ -1,6 +1,6 @@
 import { fetchPreSchoolWithImage, fetchPrimaryEducationWithImage, fetchSportsWithImage, 
     fetchMusicWithImage, fetchLanguageTrainingWithImage, fetchLanguageTrainingDetailsById, 
-    fetchVocationalTrainingWithImage, fetchVocationalTrainingDetailsById
+    fetchVocationalTrainingWithImage, fetchVocationalTrainingDetailsById, addApplicationDetails
 } from "../services/coursesService.js";
 
 export const getPreSchool = async (req, res) => {
@@ -92,3 +92,25 @@ export const getVocationalTrainingDetails = async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch course data' });
     }
 }
+
+export const submitCourseApplication = async (req, res) => {
+    try {
+        const { courseName, courseType, formData } = req.body;
+
+        if (!courseName || !courseType || !formData) {
+            return res.status(400).json({ error: 'Missing required fields: courseName, courseType, or formData' });
+        }
+
+        const result = await addApplicationDetails(courseName, courseType, formData);
+
+        if (result.success) {
+            return res.status(200).json({ message: 'Application submitted successfully' });
+        } else {
+            return res.status(500).json({ error: 'Failed to submit application', details: result.error });
+        }
+
+    } catch (err) {
+        console.error('Error submitting application:', err);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+};

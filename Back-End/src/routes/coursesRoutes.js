@@ -1,7 +1,8 @@
 import express from "express";
 import { getPreSchool, getPrimaryEducation, getSports, 
     getMusic, getLanguageTraining, getLanguageTrainingDetails, 
-    getVocationalTraining, getVocationalTrainingDetails
+    getVocationalTraining, getVocationalTrainingDetails,
+    submitCourseApplication
 } from "../controllers/coursesController.js"
 
 const router = express.Router();
@@ -14,5 +15,6 @@ router.get('/language-training', getLanguageTraining);
 router.get('/language-training/details', getLanguageTrainingDetails);
 router.get('/vocational-training', getVocationalTraining);
 router.get('/vocational-training/details', getVocationalTrainingDetails);
+router.post('/application/submit', submitCourseApplication);
 
 export default router;

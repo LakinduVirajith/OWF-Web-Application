@@ -1,0 +1,63 @@
+.application-form {
+  max-width: 700px;
+  margin: 0rem auto 2rem auto;
+  padding: 2rem;
+  background-color: var(--color-white);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  color: var(--color-black30);
+}
+
+.application-form h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.application-form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.application-form input,
+.application-form textarea,
+.application-form select {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: var(--color-white);
+  box-sizing: border-box;
+}
+
+.application-form input:focus,
+.application-form textarea:focus,
+.application-form select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+}
+
+.radio-group {
+  display: flex;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.radio-group label {
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+hr {
+  margin: 2rem 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
