@@ -17,6 +17,7 @@ import VocationalTrainingDetail from "./pages/courses/VocationalTrainingDetail"
 import PrimaryEducation from "./pages/courses/PrimaryEducation"
 import Music from "./pages/courses/Music"
 import Sports from "./pages/courses/Sports"
+import CourseApplication from "./pages/CourseApplication"
 
 import Footer from "./components/Footer"
 
@@ -43,6 +44,7 @@ function App() {
           <Route path="/courses/primary-education" element={<PrimaryEducation />} />
           <Route path="/courses/music" element={<Music />} />
           <Route path="/courses/sports" element={<Sports />} />
+          <Route path="/courses/application" element={<CourseApplication />} />
         </Routes>
       </BrowserRouter>
       <Footer />

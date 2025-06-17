@@ -15,6 +15,7 @@
     "react-dom": "^19.0.0",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^7.5.2",
+    "react-toastify": "^11.0.5",
     "swiper": "^11.2.8",
     "yet-another-react-lightbox": "^3.23.0"
   },

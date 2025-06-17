@@ -29,11 +29,11 @@ export const fetchHomeCarousel = async () => {
 };
 
 const fetchCourseWithImage = async (folderName) => {
-  const { excelFile, imageFiles } = await getChildFolderFiles(
+  const { excelFiles, imageFiles } = await getChildFolderFiles(
     'Courses',
     folderName
   );
-  const excelBuffer = await downloadExcelFile(excelFile.id);
+  const excelBuffer = await downloadExcelFile(excelFiles.id);
   const sheet = parseExcelSheet(excelBuffer);
   const imageMap = buildImageMap(imageFiles);
 

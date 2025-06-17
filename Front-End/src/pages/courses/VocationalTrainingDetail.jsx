@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { decryptId } from '../../utils/encryption';
@@ -10,6 +10,7 @@ function VocationalTrainingDetail() {
     const id = decryptId(decodeURIComponent(encryptedId));
     
     const [courseItem, setCourseItem] = useState(null);
+    const navigate = useNavigate();
     const backendApiUrl = import.meta.env.VITE_BACKEND_API_URL;
 
     useEffect(() => {
@@ -17,7 +18,7 @@ function VocationalTrainingDetail() {
       try {
         const res = await fetch(`${backendApiUrl}/courses/vocational-training/details?id=${id}`);
         const data = await res.json();
-        setCourseItem(data);        
+        setCourseItem(data); 
       } catch (error) {
         console.error('Failed to fetch news item:', error);
       }
@@ -26,13 +27,24 @@ function VocationalTrainingDetail() {
         fetchCourseItem();
     }, [backendApiUrl, id]);
 
+    const formNavigate = () => {
+        navigate('/courses/application', {
+            state: {
+                courseName: courseItem.name,
+                courseType: 'Vocational-Training',
+                time1: courseItem.time_1,
+                time2: courseItem.time_2
+            },
+        });
+    }
+
     if (!courseItem) return <LoadingScreen />;
 
     return (
         <main className="container">
             <Helmet>
                 <title>Courses Detail | One World Foundation</title>
-                <meta name="description" content={courseItem.title} />
+                <meta name="description" content={courseItem.name} />
             </Helmet>
         
             <h1 className="course-detail-title">{courseItem.name}</h1>
@@ -68,7 +80,7 @@ function VocationalTrainingDetail() {
                         <span>{courseItem.time_2}</span>
                     </div>
 
-                    <button className="button-primary btn-full">APPLY NOW</button>
+                    <button className="button-primary btn-full" onClick={formNavigate}>APPLY NOW</button>
                 </div>
                 )}
             </div>

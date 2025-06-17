@@ -21,10 +21,11 @@ export const getChildFolderFiles = async (parentFolderName, childFolderName) => 
     .api(`/users/${process.env.ONE_DRIVE_USER_ID}/drive/root:/${parentPath}:/children`)
     .get();
 
-  const excelFile = res.value.find(item => item.name.endsWith('.xlsx'));
+  const excelFiles = res.value.find(item => item.name.endsWith('.xlsx'));
+  const pdfFiles = res.value.find(item => item.name.endsWith('.pdf'));
   const imageFiles = res.value.filter(item => /\.(webp|jpg|jpeg|png)$/i.test(item.name));
     
-  return { excelFile, imageFiles };
+  return { excelFiles, pdfFiles, imageFiles };
 };
 
 export const downloadExcelFile = async (fileId) => {
@@ -42,4 +43,12 @@ export const updateExcelFile = async (fileId, updatedExcelBuffer) => {
     .put(updatedExcelBuffer);
 
   return response;
+};
+
+export const createExcelFile = async (baseFolder, folderPath, fileName, buffer) => {
+  const uploadPath = `${process.env.ONE_DRIVE_FOLDER_NAME}/${baseFolder}/${folderPath}/${fileName}.xlsx`;
+
+  await graphClient
+    .api(`/users/${process.env.ONE_DRIVE_USER_ID}/drive/root:/${uploadPath}:/content`)
+    .put(buffer);
 };

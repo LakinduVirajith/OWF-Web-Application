@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { decryptId } from '../../utils/encryption';
@@ -10,6 +10,7 @@ function LanguageTrainingDetail() {
     const id = decryptId(decodeURIComponent(encryptedId));
     
     const [courseItem, setCourseItem] = useState(null);
+    const navigate = useNavigate();
     const backendApiUrl = import.meta.env.VITE_BACKEND_API_URL;
 
     useEffect(() => {
@@ -25,6 +26,17 @@ function LanguageTrainingDetail() {
 
     fetchCourseItem();
   }, [backendApiUrl, id]);
+
+    const formNavigate = () => {
+        navigate('/courses/application', {
+            state: {
+                courseName: courseItem.name,
+                courseType: 'Language-Training',
+                time1: courseItem.time_1,
+                time2: courseItem.time_2
+            },
+        });
+    }
 
   if (!courseItem) return <LoadingScreen />;
 
@@ -68,7 +80,7 @@ function LanguageTrainingDetail() {
                     <span>{courseItem.time_2}</span>
                 </div>
 
-                <button className="button-primary btn-full">APPLY NOW</button>
+                <button className="button-primary btn-full" onClick={formNavigate}>APPLY NOW</button>
             </div>
             )}
         </div>
