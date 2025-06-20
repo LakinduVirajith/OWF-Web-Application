@@ -1,20 +1,20 @@
-.primary-education-wrapper{
+.primary-education-wrapper {
   display: flex;
   gap: 4rem;
   justify-content: space-between;
 }
 
-.primary-education-image-container{
+.primary-education-image-container {
   flex: 1;
 }
 
-.primary-education-para-container{
+.primary-education-para-container {
   margin-top: -1.2rem;
   flex: 2;
   text-align: justify;
 }
 
-.primary-education-image{
+.primary-education-image {
   width: 100%;
   height: auto;
   border-radius: 12px;

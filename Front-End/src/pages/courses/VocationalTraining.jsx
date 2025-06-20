@@ -14,7 +14,7 @@ function VocationalTraining() {
   useEffect(() => {
     const fetchCourseStructure = async () => {
       try {
-        const res = await fetch(`${backendApiUrl}/courses/vocational-training`)
+        const res = await fetch(`${backendApiUrl}/courses/vocational-training`);
         const data = await res.json();
         setCourseData(data);
       } catch (error) {
@@ -23,8 +23,8 @@ function VocationalTraining() {
     };
 
     fetchCourseStructure();
-  }, [backendApiUrl])
-  
+  }, [backendApiUrl]);
+
   const handleCourseClick = async (id) => {
     const encryptedId = encryptId(id);
     navigate(`/courses/vocational-training/${encodeURIComponent(encryptedId)}`);
@@ -36,12 +36,21 @@ function VocationalTraining() {
     <main className="container">
       <Helmet>
         <title>Vocational Training | One World Foundation</title>
-        <meta name="description" content="Discover the Vocational Training program at One World Foundation in Ahungalla, Sri Lanka — offering free skill-based education in areas like carpentry, sewing, IT, and more to support self-reliance and employment." />
-        <meta name="keywords" content="Vocational Training, Skill Development, Carpentry, Sewing, IT Training, One World Foundation, OWF Vocational Program, Free Courses, Sri Lanka NGO, Ahungalla" />
-        <link rel="canonical" href="https://owf.lk/courses/vocational-training" />
+        <meta
+          name="description"
+          content="Discover the Vocational Training program at One World Foundation in Ahungalla, Sri Lanka — offering free skill-based education in areas like carpentry, sewing, IT, and more to support self-reliance and employment."
+        />
+        <meta
+          name="keywords"
+          content="Vocational Training, Skill Development, Carpentry, Sewing, IT Training, One World Foundation, OWF Vocational Program, Free Courses, Sri Lanka NGO, Ahungalla"
+        />
+        <link
+          rel="canonical"
+          href="https://owf.lk/courses/vocational-training"
+        />
       </Helmet>
 
-      <h1 className='header'>Vocational Training</h1>
+      <h1 className="header">Vocational Training</h1>
       <hr />
 
       <section className="course-grid">
@@ -66,7 +75,7 @@ function VocationalTraining() {
               </p>
             </div>
             <div className="course-footer">
-              <span 
+              <span
                 className="read-more"
                 onClick={() => handleCourseClick(course.id)}
               >
@@ -77,7 +86,7 @@ function VocationalTraining() {
         ))}
       </section>
     </main>
-  )
+  );
 }
 
-export default VocationalTraining
+export default VocationalTraining;

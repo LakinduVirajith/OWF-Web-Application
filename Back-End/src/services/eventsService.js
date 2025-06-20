@@ -1,14 +1,5 @@
-import {
-  getFolderFiles,
-  downloadExcelFile,
-  updateExcelFile,
-} from '../utils/driveUtils.js';
-import {
-  parseExcelSheet,
-  buildImageMap,
-  excelDateToJSDate,
-  writeExcelSheet,
-} from '../utils/excelUtils.js';
+import { getFolderFiles, downloadExcelFile, updateExcelFile } from '../utils/driveUtils.js';
+import { parseExcelSheet, buildImageMap, excelDateToJSDate, writeExcelSheet } from '../utils/excelUtils.js';
 import { extractParagraphs } from '../utils/textUtils.js';
 
 export const fetchEventsDataWithImages = async () => {
@@ -49,7 +40,7 @@ export const fetchEventsDetailsById = async (id) => {
   let formattedDate = null;
   if (isNaN(event.Date)) {
     formattedDate = event.Date;
-  } else {      
+  } else {
     formattedDate = excelDateToJSDate(event.Date);
   }
 

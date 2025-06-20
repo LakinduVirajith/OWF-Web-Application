@@ -1,9 +1,5 @@
 import express from 'express';
-import {
-  getAllEvents,
-  getEventsDetails,
-  updateViewCount,
-} from '../controllers/eventsController.js';
+import { getAllEvents, getEventsDetails, updateViewCount } from '../controllers/eventsController.js';
 
 const router = express.Router();
 

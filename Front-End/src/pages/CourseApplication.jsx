@@ -7,31 +7,34 @@ function CourseApplication() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const location = useLocation();
-  const { courseName, courseType ,time1, time2 } = location.state || {};
+  const { courseName, courseType, time1, time2 } = location.state || {};
 
   const backendApiUrl = import.meta.env.VITE_BACKEND_API_URL;
 
   const handleFormSubmit = async (formData) => {
-    setIsSubmitting(true); 
+    setIsSubmitting(true);
 
-    const appliedOn  = new Date().toISOString().split('T')[0];
+    const appliedOn = new Date().toISOString().split('T')[0];
     const enrichedFormData = {
       ...formData,
-      appliedOn ,
+      appliedOn,
     };
 
     try {
-      const response = await fetch(`${backendApiUrl}/courses/application/submit`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          courseName,
-          courseType,
-          formData: enrichedFormData,
-        }),
-      });
+      const response = await fetch(
+        `${backendApiUrl}/courses/application/submit`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            courseName,
+            courseType,
+            formData: enrichedFormData,
+          }),
+        }
+      );
 
       const data = await response.json();
 

@@ -1,20 +1,20 @@
-.sports-wrapper{
+.sports-wrapper {
   display: flex;
   gap: 4rem;
   justify-content: space-between;
 }
 
-.sports-image-container{
+.sports-image-container {
   flex: 1;
 }
 
-.sports-para-container{
+.sports-para-container {
   margin-top: -1.2rem;
   flex: 2;
   text-align: justify;
 }
 
-.sports-image{
+.sports-image {
   width: 100%;
   height: auto;
   border-radius: 12px;

@@ -13,11 +13,11 @@ function Footer() {
 
         {/* Middle Section: Social Media Links */}
         <div className="footer-social">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-            <img src="/facebook-icon.png" alt="Facebook" className="social-icon" />
+          <a href="https://www.facebook.com/oneworldcollege" target="_blank" rel="noopener noreferrer">
+            <img src="/icons/facebook-icon.png" alt="Facebook" className="social-icon" />
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-            <img src="/instagram-icon.png" alt="Instagram" className="social-icon" />
+          <a href="https://www.instagram.com/onewcollege/" target="_blank" rel="noopener noreferrer">
+            <img src="/icons/instagram-icon.png" alt="Instagram" className="social-icon" />
           </a>
         </div>
 

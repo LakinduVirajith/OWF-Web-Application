@@ -1,8 +1,6 @@
 import express from "express";
-import { getPreSchool, getPrimaryEducation, getSports, 
-    getMusic, getLanguageTraining, getLanguageTrainingDetails, 
-    getVocationalTraining, getVocationalTrainingDetails,
-    submitCourseApplication
+import { getPreSchool, getPrimaryEducation, getSports, getMusic, getLanguageTraining, getLanguageTrainingDetails, 
+         getVocationalTraining, getVocationalTrainingDetails, submitCourseApplication
 } from "../controllers/coursesController.js"
 
 const router = express.Router();

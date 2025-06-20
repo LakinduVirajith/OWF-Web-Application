@@ -7,8 +7,8 @@ export const fetchStaffDataWithImages = async () => {
   const imageMap = buildImageMap(imageFiles);
 
   return sheet
-    .filter(staff => String(staff.Visibility).toLowerCase() === 'true')
-    .map(staff => ({
+    .filter((staff) => String(staff.Visibility).toLowerCase() === 'true')
+    .map((staff) => ({
       id: staff.ID,
       name: staff.Name,
       role: staff.Role,
@@ -21,7 +21,7 @@ export const fetchStaffDetailsById = async (id) => {
   const sheet = parseExcelSheet(await downloadExcelFile(excelFile.id));
   const imageMap = buildImageMap(imageFiles);
 
-  const staff = sheet.find(item => String(item.ID) === String(id));
+  const staff = sheet.find((item) => String(item.ID) === String(id));
   if (!staff) return null;
 
   return {

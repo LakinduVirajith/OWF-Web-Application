@@ -1,18 +1,8 @@
-import {
-  downloadExcelFile,
-  getChildFolderFiles,
-  getFolderFiles,
-  updateExcelFile,
-} from '../utils/driveUtils.js';
-import {
-  buildImageMap,
-  excelDateToJSDate,
-  parseExcelSheet,
-  writeExcelSheet,
-} from '../utils/excelUtils.js';
+import { downloadExcelFile, getChildFolderFiles, getFolderFiles, updateExcelFile } from '../utils/driveUtils.js';
+import { buildImageMap, excelDateToJSDate, parseExcelSheet, writeExcelSheet } from '../utils/excelUtils.js';
 
 export const fetchHomeCarousel = async () => {
-  const { excelFile, imageFiles } = await getFolderFiles('Carousel');
+  const { imageFiles } = await getFolderFiles('Carousel');
 
   return imageFiles.map((file) => {
     const baseName = file.name.split('.')[0];

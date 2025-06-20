@@ -1,36 +1,49 @@
-import graphClient from "../config/driveConfig.js";
-import dotenv from "dotenv";
+import graphClient from '../config/driveConfig.js';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
 export const getFolderFiles = async (folderName) => {
   const folderPath = `${process.env.ONE_DRIVE_FOLDER_NAME}/${folderName}`;
   const res = await graphClient
-    .api(`/users/${process.env.ONE_DRIVE_USER_ID}/drive/root:/${folderPath}:/children`)
+    .api(
+      `/users/${process.env.ONE_DRIVE_USER_ID}/drive/root:/${folderPath}:/children`
+    )
     .get();
 
-  const excelFile = res.value.find(item => item.name.endsWith('.xlsx'));
-  const imageFiles = res.value.filter(item => /\.(webp|jpg|jpeg|png)$/i.test(item.name));
+  const excelFile = res.value.find((item) => item.name.endsWith('.xlsx'));
+  const imageFiles = res.value.filter((item) =>
+    /\.(webp|jpg|jpeg|png)$/i.test(item.name)
+  );
 
   return { excelFile, imageFiles };
 };
 
-export const getChildFolderFiles = async (parentFolderName, childFolderName) => {
+export const getChildFolderFiles = async (
+  parentFolderName,
+  childFolderName
+) => {
   const parentPath = `${process.env.ONE_DRIVE_FOLDER_NAME}/${parentFolderName}/${childFolderName}`;
   const res = await graphClient
-    .api(`/users/${process.env.ONE_DRIVE_USER_ID}/drive/root:/${parentPath}:/children`)
+    .api(
+      `/users/${process.env.ONE_DRIVE_USER_ID}/drive/root:/${parentPath}:/children`
+    )
     .get();
 
-  const excelFiles = res.value.find(item => item.name.endsWith('.xlsx'));
-  const pdfFiles = res.value.find(item => item.name.endsWith('.pdf'));
-  const imageFiles = res.value.filter(item => /\.(webp|jpg|jpeg|png)$/i.test(item.name));
-    
+  const excelFiles = res.value.find((item) => item.name.endsWith('.xlsx'));
+  const pdfFiles = res.value.find((item) => item.name.endsWith('.pdf'));
+  const imageFiles = res.value.filter((item) =>
+    /\.(webp|jpg|jpeg|png)$/i.test(item.name)
+  );
+
   return { excelFiles, pdfFiles, imageFiles };
 };
 
 export const downloadExcelFile = async (fileId) => {
   const download = await graphClient
-    .api(`/users/${process.env.ONE_DRIVE_USER_ID}/drive/items/${fileId}/content`)
+    .api(
+      `/users/${process.env.ONE_DRIVE_USER_ID}/drive/items/${fileId}/content`
+    )
     .responseType('arraybuffer')
     .get();
 
@@ -39,16 +52,25 @@ export const downloadExcelFile = async (fileId) => {
 
 export const updateExcelFile = async (fileId, updatedExcelBuffer) => {
   const response = await graphClient
-    .api(`/users/${process.env.ONE_DRIVE_USER_ID}/drive/items/${fileId}/content`)
+    .api(
+      `/users/${process.env.ONE_DRIVE_USER_ID}/drive/items/${fileId}/content`
+    )
     .put(updatedExcelBuffer);
 
   return response;
 };
 
-export const createExcelFile = async (baseFolder, folderPath, fileName, buffer) => {
+export const createExcelFile = async (
+  baseFolder,
+  folderPath,
+  fileName,
+  buffer
+) => {
   const uploadPath = `${process.env.ONE_DRIVE_FOLDER_NAME}/${baseFolder}/${folderPath}/${fileName}.xlsx`;
 
   await graphClient
-    .api(`/users/${process.env.ONE_DRIVE_USER_ID}/drive/root:/${uploadPath}:/content`)
+    .api(
+      `/users/${process.env.ONE_DRIVE_USER_ID}/drive/root:/${uploadPath}:/content`
+    )
     .put(buffer);
 };

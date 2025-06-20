@@ -14,8 +14,8 @@ function News() {
   useEffect(() => {
     const fetchNewsStructure = async () => {
       try {
-        const res = await fetch(`${backendApiUrl}/news/all`)
-        const data = await res.json();        
+        const res = await fetch(`${backendApiUrl}/news/all`);
+        const data = await res.json();
         setNewsData(data.reverse());
       } catch (error) {
         console.error('Error fetching news data:', error);
@@ -23,8 +23,8 @@ function News() {
     };
 
     fetchNewsStructure();
-  }, [backendApiUrl])
-  
+  }, [backendApiUrl]);
+
   const handleNewsClick = async (id) => {
     const encryptedId = encryptId(id);
     navigate(`/news/${encodeURIComponent(encryptedId)}`);
@@ -36,8 +36,14 @@ function News() {
     <main className="container">
       <Helmet>
         <title>News | One World Foundation</title>
-        <meta name="description" content="Explore the latest news and updates from One World Foundation. Stay informed about our projects and activities." />
-        <meta name="keywords" content="One World Foundation, News, Updates, Education, Sri Lanka NGO" />
+        <meta
+          name="description"
+          content="Explore the latest news and updates from One World Foundation. Stay informed about our projects and activities."
+        />
+        <meta
+          name="keywords"
+          content="One World Foundation, News, Updates, Education, Sri Lanka NGO"
+        />
         <link rel="canonical" href="https://owf.lk/news/" />
       </Helmet>
 
@@ -63,10 +69,8 @@ function News() {
               </p>
             </div>
             <div className="news-footer">
-              <span className="news-views">
-                👁️ {news.viewCount}
-              </span>
-              <span 
+              <span className="news-views">👁️ {news.viewCount}</span>
+              <span
                 className="read-more"
                 onClick={() => handleNewsClick(news.id)}
               >
@@ -77,7 +81,7 @@ function News() {
         ))}
       </section>
     </main>
-  )
+  );
 }
 
-export default News
+export default News;

@@ -7,7 +7,10 @@ import '../styles/Gallery.css';
 
 function Gallery() {
   const [activeTab, setActiveTab] = useState('events');
-  const [galleryData, setGalleryData] = useState({ results: [], totalFolders: 0 });
+  const [galleryData, setGalleryData] = useState({
+    results: [],
+    totalFolders: 0,
+  });
   const [subfolders, setSubfolders] = useState([]);
   const [currentFolderId, setCurrentFolderId] = useState(null);
 
@@ -25,7 +28,7 @@ function Gallery() {
     const fetchGalleryStructure = async () => {
       try {
         const res = await fetch(`${backendApiUrl}/gallery/folder?name=Gallery`);
-        const data = await res.json();        
+        const data = await res.json();
 
         if (data.folderId && data.subfolders.length > 0) {
           setSubfolders(data.subfolders);
@@ -58,15 +61,17 @@ function Gallery() {
   // FETCH IMAGES FROM SELECTED SUBFOLDER
   const fetchImages = async (folderId, page, reset = false) => {
     try {
-      const res = await fetch(`${backendApiUrl}/gallery/images?folderId=${folderId}&page=${page}&limit=${limit}`);
+      const res = await fetch(
+        `${backendApiUrl}/gallery/images?folderId=${folderId}&page=${page}&limit=${limit}`
+      );
       const data = await res.json();
-      
+
       if (reset) {
         setGalleryData(data);
       } else {
-        setGalleryData(prev => ({
+        setGalleryData((prev) => ({
           totalFolders: data.totalFolders,
-          results: [...prev.results, ...data.results]
+          results: [...prev.results, ...data.results],
         }));
       }
     } catch (error) {
@@ -81,7 +86,7 @@ function Gallery() {
   };
 
   const openLightbox = (images, index) => {
-    setLightboxImages(images.map(img => ({ src: img.url })));
+    setLightboxImages(images.map((img) => ({ src: img.url })));
     setLightboxIndex(index);
     setLightboxOpen(true);
   };
@@ -90,8 +95,14 @@ function Gallery() {
     <main className="gallery container">
       <Helmet>
         <title>Gallery | One World Foundation</title>
-        <meta name="description" content="Explore our photo gallery showcasing the events, classes, and community efforts organized by One World Foundation in Sri Lanka." />
-        <meta name="keywords" content="One World Foundation Gallery, Event Photos, Education Programs, Sri Lanka NGO, Ahungalla School" />
+        <meta
+          name="description"
+          content="Explore our photo gallery showcasing the events, classes, and community efforts organized by One World Foundation in Sri Lanka."
+        />
+        <meta
+          name="keywords"
+          content="One World Foundation Gallery, Event Photos, Education Programs, Sri Lanka NGO, Ahungalla School"
+        />
         <link rel="canonical" href="https://owf.lk/gallery/" />
       </Helmet>
 
@@ -141,7 +152,9 @@ function Gallery() {
       {/* LOAD MORE BUTTON */}
       {galleryData.totalFolders > page * limit && (
         <div className="load-more">
-          <button className='button-primary' onClick={loadMoreImages}>Load More</button>
+          <button className="button-primary" onClick={loadMoreImages}>
+            Load More
+          </button>
         </div>
       )}
 

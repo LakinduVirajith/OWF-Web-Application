@@ -1,4 +1,4 @@
-import XLSX from "xlsx";
+import XLSX from 'xlsx';
 
 export const parseExcelSheet = (excelBuffer) => {
   const workbook = XLSX.read(excelBuffer, { type: 'buffer' });
@@ -7,7 +7,7 @@ export const parseExcelSheet = (excelBuffer) => {
 
 export const buildImageMap = (imageFiles) => {
   const map = {};
-  imageFiles.forEach(file => {
+  imageFiles.forEach((file) => {
     const id = file.name.split('.')[0];
     map[id] = file['@microsoft.graph.downloadUrl'];
   });
@@ -23,6 +23,6 @@ export const excelDateToJSDate = (serial) => {
 export const writeExcelSheet = (jsonData) => {
   const worksheet = XLSX.utils.json_to_sheet(jsonData);
   const workbook = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
-  return XLSX.write(workbook, { type: "buffer", bookType: "xlsx" });
+  XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+  return XLSX.write(workbook, { type: 'buffer', bookType: 'xlsx' });
 };

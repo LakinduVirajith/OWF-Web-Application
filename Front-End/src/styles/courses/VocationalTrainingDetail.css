@@ -10,25 +10,25 @@
   gap: 4rem;
 }
 
-.course-para-container{
-    margin-top: -1.2rem;
-    flex: 2;
-    text-align: justify;
+.course-para-container {
+  margin-top: -1.2rem;
+  flex: 2;
+  text-align: justify;
 }
 
-.course-image-container{
-    flex: 1;
+.course-image-container {
+  flex: 1;
 }
 
 .course-detail-meta {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 0.2rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--color-black70);
-    margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-black70);
+  margin-bottom: 0.5rem;
 }
 
 .course-image {

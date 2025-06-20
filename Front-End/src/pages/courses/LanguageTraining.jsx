@@ -14,7 +14,7 @@ function LanguageTraining() {
   useEffect(() => {
     const fetchCourseStructure = async () => {
       try {
-        const res = await fetch(`${backendApiUrl}/courses/language-training`)
+        const res = await fetch(`${backendApiUrl}/courses/language-training`);
         const data = await res.json();
         setCourseData(data);
       } catch (error) {
@@ -23,8 +23,8 @@ function LanguageTraining() {
     };
 
     fetchCourseStructure();
-  }, [backendApiUrl])
-  
+  }, [backendApiUrl]);
+
   const handleCourseClick = async (id) => {
     const encryptedId = encryptId(id);
     navigate(`/courses/language-training/${encodeURIComponent(encryptedId)}`);
@@ -36,14 +36,20 @@ function LanguageTraining() {
     <main className="container">
       <Helmet>
         <title>Language Training | One World Foundation</title>
-        <meta name="description" content="Explore the Language Training program at One World Foundation in Ahungalla, Sri Lanka — empowering individuals through free English and Sinhala language education." />
-        <meta name="keywords" content="Language Training, English Classes, Sinhala Classes, One World Foundation, OWF Language Education, Free Language Courses, Sri Lanka NGO, Ahungalla" />
+        <meta
+          name="description"
+          content="Explore the Language Training program at One World Foundation in Ahungalla, Sri Lanka — empowering individuals through free English and Sinhala language education."
+        />
+        <meta
+          name="keywords"
+          content="Language Training, English Classes, Sinhala Classes, One World Foundation, OWF Language Education, Free Language Courses, Sri Lanka NGO, Ahungalla"
+        />
         <link rel="canonical" href="https://owf.lk/courses/language-training" />
       </Helmet>
 
-      <h1 className='header'>Language Training</h1>
+      <h1 className="header">Language Training</h1>
       <hr />
-      
+
       <section className="course-grid">
         {courseData.map((course) => (
           <article
@@ -66,7 +72,7 @@ function LanguageTraining() {
               </p>
             </div>
             <div className="course-footer">
-              <span 
+              <span
                 className="read-more"
                 onClick={() => handleCourseClick(course.id)}
               >
@@ -77,7 +83,7 @@ function LanguageTraining() {
         ))}
       </section>
     </main>
-  )
+  );
 }
 
-export default LanguageTraining
+export default LanguageTraining;

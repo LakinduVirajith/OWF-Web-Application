@@ -1,8 +1,4 @@
-import {
-  fetchEventsDataWithImages,
-  fetchEventsDetailsById,
-  updateEventsViewCountById,
-} from '../services/eventsService.js';
+import { fetchEventsDataWithImages, fetchEventsDetailsById, updateEventsViewCountById } from '../services/eventsService.js';
 
 export const getAllEvents = async (req, res) => {
   try {

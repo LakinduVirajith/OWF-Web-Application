@@ -20,7 +20,7 @@
   gap: 4rem;
 }
 
-.news-detail-image-container{
+.news-detail-image-container {
   flex: 1;
 }
 
@@ -33,7 +33,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.news-detail-content{
+.news-detail-content {
   flex: 1;
 }
 
