@@ -58,10 +58,14 @@
   padding: 10px 20px;
   white-space: nowrap;
   cursor: pointer;
+  border: 4px;
+  border-style: solid;
+  border-color: var(--color-navbar);
 }
 
 .dropdown-item:hover {
-  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  background-color: var(--color-white);
 }
 
 /* MOBILE STYLES */
