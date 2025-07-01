@@ -1,0 +1,29 @@
+.primary-education-wrapper {
+  display: flex;
+  gap: 4rem;
+  justify-content: space-between;
+}
+
+.primary-education-image-container {
+  flex: 1;
+}
+
+.primary-education-para-container {
+  margin-top: -1.2rem;
+  flex: 2;
+  text-align: justify;
+}
+
+.primary-education-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .primary-education-wrapper {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+}

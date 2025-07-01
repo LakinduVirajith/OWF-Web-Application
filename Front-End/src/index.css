@@ -1,0 +1,179 @@
+/* ==========================================================================
+   Root Variables
+   ========================================================================== */
+:root {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #202020;
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Theme Colors */
+  --color-primary: #f69b20;
+  --color-primary-dark: #e1a243;
+  --color-primary-hover: #fb8c00;
+
+  /* UI Colors */
+  --color-navbar: #f2f2f2;
+  --color-navbar-hover: #dddddd;
+  --color-hover-green: #00695c;
+  --color-hover-red: #690000;
+
+  /* Link Colors */
+  --color-link: #007bff;
+  --color-link-dark: #2e81db;
+  --color-link-light: #e0f1ff;
+  --color-link-hover: #0056b3;
+
+  /* Greyscale Palette */
+  --color-black: #000000;
+  --color-black10: #101010;
+  --color-black20: #202020;
+  --color-black30: #303030;
+  --color-black40: #404040;
+  --color-black50: #505050;
+  --color-black60: #606060;
+  --color-black70: #707070;
+  --color-black80: #808080;
+  --color-white: #ffffff;
+  --color-whitefa: #fafafa;
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin-top: 5rem;
+  background-color: var(--color-white);
+  color: var(--color-black20);
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-black20);
+}
+
+hr {
+  height: 2px;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   Layout Utilities
+   ========================================================================== */
+.container {
+  margin: auto 10%;
+  padding: 2rem;
+  text-align: center;
+}
+
+.header {
+  font-size: 2.5rem;
+  margin: 0 0 1.5rem;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.button-primary {
+  padding: 12px 25px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.button-outline {
+  align-self: flex-start;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.button-outline:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-full {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.button-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================================================
+   Components – Cards
+   ========================================================================== */
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* ==========================================================================
+   Components – Links
+   ========================================================================== */
+.read-more {
+  color: var(--color-link);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.read-more:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+}
