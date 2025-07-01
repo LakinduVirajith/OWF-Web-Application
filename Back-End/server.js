@@ -14,7 +14,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const allowedOrigins = ['http://localhost:5173', 'https://owf.lk'];
+const allowedOrigins = ['http://localhost:5173', 'https://owf.lk', 'https://oneworldcollege.owf.lk'];
 app.use(cors({
   origin: allowedOrigins
 }));
