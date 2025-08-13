@@ -30,20 +30,36 @@ function Home() {
   const apiUrl = import.meta.env.VITE_BACKEND_API_URL;
 
   useEffect(() => {
-    const fetchData = async (endpoint, setter) => {
+    const loadCarousel = async () => {
       try {
-        const res = await fetch(`${apiUrl}/home/${endpoint}`);
+        const res = await fetch(`${apiUrl}/home/carousel`);
         const data = await res.json();
-        setter(data);
+        setCarouselData(data);
       } catch (err) {
-        console.error(`Error fetching ${endpoint}:`, err);
+        console.error('Error fetching carousel:', err);
       }
     };
 
-    fetchData('carousel', setCarouselData);
-    fetchData('courses', setCoursesData);
-    fetchData('staff', setStaffData);
-    fetchData('events', setEventData);
+    loadCarousel();
+
+    const loadOthers = () => {
+      fetch(`${apiUrl}/home/courses`)
+        .then((res) => res.json())
+        .then(setCoursesData)
+        .catch((err) => console.error('Error fetching courses:', err));
+
+      fetch(`${apiUrl}/home/staff`)
+        .then((res) => res.json())
+        .then(setStaffData)
+        .catch((err) => console.error('Error fetching staff:', err));
+
+      fetch(`${apiUrl}/home/events`)
+        .then((res) => res.json())
+        .then(setEventData)
+        .catch((err) => console.error('Error fetching events:', err));
+    };
+
+    loadOthers();
   }, [apiUrl]);
 
   const goToCourse = (type, id) => {
@@ -91,12 +107,7 @@ function Home() {
     }
   };
 
-  if (
-    !carouselData.length ||
-    !coursesData.length ||
-    !eventData.length ||
-    !staffData.length
-  ) {
+  if (!carouselData.length) {
     return <LoadingScreen />;
   }
 
@@ -187,19 +198,19 @@ function Home() {
           pagination={{ clickable: true }}
         >
           <SwiperSlide>
-            <img src="images/about_1.png" alt="about_1" />
+            <img src="images/about_1.webp" alt="about_1" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="images/about_2.png" alt="about_2" />
+            <img src="images/about_2.webp" alt="about_2" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="images/about_3.png" alt="about_3" />
+            <img src="images/about_3.webp" alt="about_3" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="images/about_4.png" alt="about_4" />
+            <img src="images/about_4.webp" alt="about_4" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="images/about_5.png" alt="about_5" />
+            <img src="images/about_5.webp" alt="about_5" />
           </SwiperSlide>
         </Swiper>
       </section>
@@ -207,94 +218,102 @@ function Home() {
       {/* Courses */}
       <section className="courses-section container">
         <h1 className="header">Our Courses and Programs</h1>
-        <Swiper
-          modules={[Autoplay]}
-          spaceBetween={30}
-          loop
-          autoplay={{ delay: 3000 }}
-          breakpoints={{
-            0: { slidesPerView: 1 },
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}
-        >
-          {coursesData.map((course) => (
-            <SwiperSlide key={course.id}>
-              <div
-                className="course-item"
-                onClick={() => goToCourse(course.courseType, course.id)}
-              >
-                <img
-                  src={course.imageUrl}
-                  alt={course.name}
-                  className="course-image"
-                />
-                <div className="course-overlay">
-                  <h2 className="course-title">{course.name}</h2>
-                  <p className="course-description">
-                    {course.description.length > 200
-                      ? course.description.slice(0, 200) + '...'
-                      : course.description}
-                  </p>
+        {coursesData.length ? (
+          <Swiper
+            modules={[Autoplay]}
+            spaceBetween={30}
+            loop
+            autoplay={{ delay: 3000 }}
+            breakpoints={{
+              0: { slidesPerView: 1 },
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+          >
+            {coursesData.map((course) => (
+              <SwiperSlide key={course.id}>
+                <div
+                  className="course-item"
+                  onClick={() => goToCourse(course.courseType, course.id)}
+                >
+                  <img
+                    src={course.imageUrl}
+                    alt={course.name}
+                    className="course-image"
+                  />
+                  <div className="course-overlay">
+                    <h2 className="course-title">{course.name}</h2>
+                    <p className="course-description">
+                      {course.description.length > 200
+                        ? course.description.slice(0, 200) + '...'
+                        : course.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        ) : (
+          <p>Loading courses...</p>
+        )}
       </section>
 
       {/* Events */}
       <section className="events-section container">
         <h1 className="header">Events</h1>
 
-        <Swiper
-          modules={[Autoplay]}
-          spaceBetween={30}
-          loop
-          autoplay={{ delay: 3000 }}
-          breakpoints={{
-            0: { slidesPerView: 1 },
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}
-        >
-          {eventData.map((event) => (
-            <SwiperSlide
-              className="card"
-              key={event.id}
-              onClick={() => handleEventClick(event.id)}
-            >
-              <img
-                src={event.imageUrl}
-                alt={event.title}
-                className="event-image"
-                loading="lazy"
-              />
-              <div className="event-content">
-                <h2 className="event-title">{event.title}</h2>
-                <p className="event-description">
-                  <strong>Date:</strong> {event.date}
-                </p>
-                {event.time && (
+        {eventData.length ? (
+          <Swiper
+            modules={[Autoplay]}
+            spaceBetween={30}
+            loop
+            autoplay={{ delay: 3000 }}
+            breakpoints={{
+              0: { slidesPerView: 1 },
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+          >
+            {eventData.map((event) => (
+              <SwiperSlide
+                className="card"
+                key={event.id}
+                onClick={() => handleEventClick(event.id)}
+              >
+                <img
+                  src={event.imageUrl}
+                  alt={event.title}
+                  className="event-image"
+                  loading="lazy"
+                />
+                <div className="event-content">
+                  <h2 className="event-title">{event.title}</h2>
                   <p className="event-description">
-                    <strong>Time:</strong> {event.time}
+                    <strong>Date:</strong> {event.date}
                   </p>
-                )}
-              </div>
-              <div className="event-footer">
-                <span className="event-views">
-                  {/* 👁️ {event.viewCount} */}
-                </span>
-                <span
-                  className="read-more"
-                  onClick={() => handleEventClick(event.id)}
-                >
-                  Read more →
-                </span>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+                  {event.time && (
+                    <p className="event-description">
+                      <strong>Time:</strong> {event.time}
+                    </p>
+                  )}
+                </div>
+                <div className="event-footer">
+                  <span className="event-views">
+                    {/* 👁️ {event.viewCount} */}
+                  </span>
+                  <span
+                    className="read-more"
+                    onClick={() => handleEventClick(event.id)}
+                  >
+                    Read more →
+                  </span>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        ) : (
+          <p>Loading events...</p>
+        )}
 
         <div className="event-button">
           <button
@@ -309,31 +328,36 @@ function Home() {
       {/* Management */}
       <section className="management-section">
         <h1 className="header">Our Management</h1>
-        <Swiper
-          modules={[Autoplay]}
-          loop
-          autoplay={{ delay: 3000 }}
-          pagination={{ clickable: true }}
-          breakpoints={{
-            0: { slidesPerView: 2 },
-            768: { slidesPerView: 4 },
-            1024: { slidesPerView: 6 },
-          }}
-        >
-          {staffData.map((staff, i) => (
-            <SwiperSlide key={i}>
-              <div className="staff-card">
-                <img
-                  src={staff.imageUrl}
-                  alt={staff.name}
-                  className="staff-image"
-                />
-                <h3 className="staff-name">{staff.name}</h3>
-                <p className="staff-role">{staff.role}</p>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+
+        {staffData.length ? (
+          <Swiper
+            modules={[Autoplay]}
+            loop
+            autoplay={{ delay: 3000 }}
+            pagination={{ clickable: true }}
+            breakpoints={{
+              0: { slidesPerView: 2 },
+              768: { slidesPerView: 4 },
+              1024: { slidesPerView: 6 },
+            }}
+          >
+            {staffData.map((staff, i) => (
+              <SwiperSlide key={i}>
+                <div className="staff-card">
+                  <img
+                    src={staff.imageUrl}
+                    alt={staff.name}
+                    className="staff-image"
+                  />
+                  <h3 className="staff-name">{staff.name}</h3>
+                  <p className="staff-role">{staff.role}</p>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        ) : (
+          <p>Loading staff...</p>
+        )}
       </section>
 
       {/* Contact & Location */}

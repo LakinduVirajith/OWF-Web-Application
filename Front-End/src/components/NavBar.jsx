@@ -32,7 +32,7 @@ function NavBar() {
     <nav className="navbar">
       <div className="nav-container">
         <a href="/">
-          <img src="/owf-logo.png" className='logo' alt="owf-logo" />
+          <img src="/owf-logo.webp" className='logo' alt="owf-logo" />
         </a>
 
         <div className="hamburger" onClick={toggleMobileMenu}>
