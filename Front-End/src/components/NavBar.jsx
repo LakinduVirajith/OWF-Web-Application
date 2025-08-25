@@ -40,25 +40,45 @@ function NavBar() {
         </div>
 
         <ul className={`nav-list ${isMobileMenuOpen ? 'active' : ''}`}>
-          <li className="nav-item"><a href="/about/">About</a></li>
+          <a href="/about/">
+            <li className="nav-item">About</li>
+          </a>
 
           <li className="nav-item dropdown" onClick={toggleDropdown} ref={dropdownRef}>
             Courses
             {isDropdownOpen && (
               <ul className="dropdown-menu">
-                <li className="dropdown-item"><a href="/courses/pre-school/">Pre-School</a></li>
-                <li className="dropdown-item"><a href="/courses/language-training/">Language Training</a></li>
-                <li className="dropdown-item"><a href="/courses/vocational-training/">Vocational Training</a></li>
-                <li className="dropdown-item"><a href="/courses/primary-education/">Primary Education</a></li>
-                <li className="dropdown-item"><a href="/courses/music/">Music</a></li>
-                <li className="dropdown-item"><a href="/courses/sports/">Sports</a></li>
+                <a href="/courses/pre-school/">
+                  <li className="dropdown-item">Pre-School</li>
+                </a>
+                <a href="/courses/language-training/">
+                  <li className="dropdown-item">Language Training</li>
+                </a>
+                <a href="/courses/vocational-training/">
+                  <li className="dropdown-item">Vocational Training</li>
+                </a>
+                <a href="/courses/primary-education/">
+                  <li className="dropdown-item">Primary Education</li>
+                </a>
+                <a href="/courses/music/">
+                  <li className="dropdown-item">Music</li>
+                </a>
+                <a href="/courses/sports/">
+                  <li className="dropdown-item">Sports</li>
+                </a>
               </ul>
             )}
           </li>
 
-          <li className="nav-item"><a href="/staff/">Staff</a></li>
-          <li className="nav-item"><a href="/gallery/">Gallery</a></li>
-          <li className="nav-item"><a href="/news/">News</a></li>
+          <a href="/staff/">
+            <li className="nav-item">Staff</li>
+          </a>
+          <a href="/gallery/">
+            <li className="nav-item">Gallery</li>
+          </a>
+          <a href="/news/">
+            <li className="nav-item">News</li>
+          </a>
         </ul>
       </div>
     </nav>
